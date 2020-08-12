@@ -2,16 +2,18 @@
 """TEST TEST TEST essah sssah saah...
 Fine it's working"""
 
-import console
+
 from unittest import TestCase
 from unittest.mock import patch
 from io import StringIO
 import os
 import sys
-HBNBCommand = console.HBNBCommand
+from console import HBNBCommand
+
 
 class TestConsole(TestCase):
     """test for console"""
+
     def no_class_name(self):
         """no class name input"""
         with patch('sys.stdout', new=StringIO()) as f:
