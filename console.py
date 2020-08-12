@@ -126,9 +126,9 @@ class HBNBCommand(cmd.Cmd):
         for param in all_args[1:]:
             key = param.split('=')[0]
             value = param.split('=')[1]
-            if value[0] == '\"' and value[-1] == '\"':
-                value.replace('_', ' ')
-                value.strip('"')
+            if value[0] == '"' and value[-1] == '"':
+                value = value.replace("_", " ")
+                value = value.strip('"')
             elif '.' in value:
                 value = float(value)
             else:
