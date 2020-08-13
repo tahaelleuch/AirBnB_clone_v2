@@ -1,14 +1,23 @@
 {
-    "State.b2722979-c1b0-40ed-b96d-8ebef1deecb6": {
-        "id": "b2722979-c1b0-40ed-b96d-8ebef1deecb6",
-        "created_at": "2020-08-13T22:06:32.028598",
-        "updated_at": "2020-08-13T22:06:32.028930",
-        "__class__": "State"
+    "Place.84c23754-c71c-4a47-ac26-be357a30a24b": {
+        "id": "84c23754-c71c-4a47-ac26-be357a30a24b",
+        "created_at": "2020-08-13T23:20:47.346335",
+        "updated_at": "2020-08-13T23:20:47.346357",
+        "number_bathrooms": 4,
+        "price": 0.069,
+        "__class__": "Place"
     },
-    "State.dfb32310-ecc2-4ed0-ad8b-78467eb26328": {
-        "id": "dfb32310-ecc2-4ed0-ad8b-78467eb26328",
-        "created_at": "2020-08-13T22:06:37.554995",
-        "updated_at": "2020-08-13T22:06:37.555252",
+    "BaseModel.4dfd2958-bd93-4af9-b1f4-4723c96d0f93": {
+        "id": "4dfd2958-bd93-4af9-b1f4-4723c96d0f93",
+        "created_at": "2020-08-13T23:20:47.346967",
+        "updated_at": "2020-08-13T23:20:47.346982",
+        "__class__": "BaseModel"
+    },
+    "State.00dbdad2-cb4c-4945-b383-26fc4d23de7c": {
+        "id": "00dbdad2-cb4c-4945-b383-26fc4d23de7c",
+        "created_at": "2020-08-13T23:20:47.347944",
+        "updated_at": "2020-08-13T23:20:47.347985",
+        "name": "California",
         "__class__": "State"
     }
 }

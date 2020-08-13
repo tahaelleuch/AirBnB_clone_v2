@@ -13,36 +13,45 @@ from console import HBNBCommand
 
 class TestConsole(TestCase):
     """test for console"""
+    def test0(self):
+        """test0"""
+        pass
 
-    def no_class_name(self):
+    def test1(self):
+        """test1"""
+        try:
+            os.remove('file.json')
+        except:
+            pass
+    def test2(self):
         """no class name input"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create")
         msg = f.getvalue()[:-1]
         self.assertEqual(msg, "** class name missing **")
 
-    def wrong_class_name(self):
+    def test3(self):
         """input wrong class name"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create testing")
         msg = f.getvalue()[:-1]
         self.assertEqual(msg, "** class doesn't exist **")
 
-    def create_class(self):
+    def test4(self):
         """input normal class name"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create BaseModel")
         msg = f.getvalue()[:-1]
         self.assertEqual(type(msg), str)
 
-    def enter_param(self):
+    def test5(self):
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd('create State name="California"')
             HBNBCommand().onecmd('all State')
         msg = f.getvalue()[:-1]
         self.assertTrue("'name': 'California'" in msg)
 
-    def param_is_number(self):
+    def test(self):
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd('create Place number_bathrooms=4 price=0.069')
             HBNBCommand().onecmd('all Place')
