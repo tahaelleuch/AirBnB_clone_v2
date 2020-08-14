@@ -7,6 +7,7 @@ from models.base_model import Base
 import sqlalchemy
 from sqlalchemy import Column, String
 from os import getenv
+from sqlalchemy.orm import relationship
 
 
 class User(BaseModel, Base):
@@ -17,4 +18,4 @@ class User(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
 
-    places = relationship("Place", backref="user", cascade="all, delete")
+    places = relationship("Place", backref="User", cascade="all, delete")
