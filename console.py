@@ -169,7 +169,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def help_show(self):
-        """ Help information for the show command """
+        """ Help information for the showcommand """
         print("Shows an individual instance of a class")
         print("[Usage]: show <className> <objectId>\n")
 
