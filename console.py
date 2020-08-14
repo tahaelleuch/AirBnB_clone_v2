@@ -324,7 +324,7 @@ class HBNBCommand(cmd.Cmd):
         new_dict.save()  # save updates to file
 
     def help_update(self):
-        """ Help information for the update class """
+        """ Help information for the updateclass """
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
 
