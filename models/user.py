@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 """This module defines a class User"""
 
@@ -16,4 +17,4 @@ class User(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
 
-    places = relationship("Place", backref="user")
+    places = relationship("Place", backref="user", cascade="all, delete")
