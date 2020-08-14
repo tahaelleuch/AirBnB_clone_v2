@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""module DBStorage"""
+"""moduleDBStorage"""
 
 import models
 from models.amenity import Amenity
