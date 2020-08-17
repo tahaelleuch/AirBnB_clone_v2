@@ -19,16 +19,16 @@ def do_deploy(archive_path):
         file_name = archive_path.split("/")[-1]
         folder_name = file_name.split(".")[0]
         #Uncompress the archive
-        run('mkdir -p /data/web_static/releases/' + folder_name + '/')
-        run('tar -xzf /tmp/' + file_name +
+        run('sudo mkdir -p /data/web_static/releases/' + folder_name + '/')
+        run('sudo tar -xzf /tmp/' + file_name +
             ' -C /data/web_static/releases/' + folder_name + '/')
         #Delete the archive and the symbolic link
-        run('rm /tmp/' + file_name)
-        run('rm -rf /data/web_static/releases/'
+        run('sudo rm /tmp/' + file_name)
+        run('sudo rm -rf /data/web_static/releases/'
             + folder_name + '/web_static')
-        run('rm -rf /data/web_static/current')
+        run('sudo rm -rf /data/web_static/current')
         #Create a new the symbolic link
-        run('ln -sf /data/web_static/releases/'
+        run('sudo ln -sf /data/web_static/releases/'
             + folder_name + '/ /data/web_static/current')
         return True
     except:
