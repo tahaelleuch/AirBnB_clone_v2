@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Fabric script that distributes an archive to your web servers"""
 
+from datetime import datetime as dt
 from os import path
-from fabric.api import put, run, env
+from fabric.api import put, run, env, local
 
 env.hosts = ['35.231.103.25', '35.190.157.5']
 
@@ -12,6 +13,7 @@ def do_deploy(archive_path):
     if not path.exists(archive_path):
         return False
     try:
+        print("hello")
         #Upload the archive to the /tmp/ directory of the web server
         put(archive_path, '/tmp/')
         #getting file name
@@ -32,3 +34,14 @@ def do_deploy(archive_path):
         return True
     except:
         return False
+
+
+def do_pack():
+    """do_pack function"""
+    local("mkdir -p versions")
+    file = "versions/web_static_" + dt.now().strftime("%Y%m%d%H%M%S") + ".tgz"
+    local("tar -cvzf " + file + " web_static")
+    if path.exists(file):
+        return file
+    else:
+        return None
