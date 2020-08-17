@@ -20,7 +20,7 @@ def do_deploy(archive_path):
         #Uncompress the archive
         run('mkdir -p /data/web_static/releases/' + folder_name + '/')
         run('tar -xzf /tmp/' + file_name +
-            '-C /data/web_static/releases/' + folder_name + '/'
+            '-C /data/web_static/releases/' + folder_name + '/')
         #Delete the archive and the symbolic link
         run('rm /tmp/' + file_name)
         run('rm -rf /data/web_static/releases/'
