@@ -13,23 +13,21 @@ def do_deploy(archive_path):
     if not path.exists(archive_path):
         return False
     try:
-        #Upload the archive to the /tmp/ directory of the web server
         put(archive_path, '/tmp/')
-        #getting file name
         file_name = archive_path.split("/")[-1]
         folder_name = file_name.split(".")[0]
-        #Uncompress the archive
         run('sudo mkdir -p /data/web_static/releases/' + folder_name + '/')
         run('sudo tar -xzf /tmp/' + file_name +
             ' -C /data/web_static/releases/' + folder_name + '/')
-        #Delete the archive and the symbolic link
         run('sudo rm /tmp/' + file_name)
-        run('sudo rm -rf /data/web_static/releases/'
-            + folder_name + '/web_static')
+        run('sudo mv /data/web_static/releases/' +
+            folder_name + '/web_static/* /data/web_static/releases/' +
+            folder_name)
+        run('sudo rm -rf /data/web_static/releases/' +
+            folder_name + '/web_static')
         run('sudo rm -rf /data/web_static/current')
-        #Create a new the symbolic link
-        run('sudo ln -sf /data/web_static/releases/'
-            + folder_name + '/ /data/web_static/current')
+        run('sudo ln -s /data/web_static/releases/' +
+            folder_name + '/ /data/web_static/current')
         return True
     except:
         return False
