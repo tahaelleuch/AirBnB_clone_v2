@@ -43,6 +43,7 @@ def do_pack():
     else:
         return None
 
+
 def deploy():
     """ that creates and distributes an archive to your web servers"""
     path = do_pack()
