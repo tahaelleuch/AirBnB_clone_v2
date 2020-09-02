@@ -42,15 +42,12 @@ class DBStorage:
     def all(self, cls=None):
         """all"""
         new_dict = {}
-        val_list = []
-        if cls is not None:
-            val_list = self.__session.query(cls).all()
-        else:
-            for cla_ss in classes:
-                val_list += self.__session.query(classes[cla_ss]).all()
-        for val in val_list:
-            key = "{}.{}".format(val.__class__.__name__, val.id)
-            new_dict[key] = val
+        for clss in classes:
+            if cls is None or cls is classes[clss] or cls is clss:
+                objs = self.__session.query(classes[clss]).all()
+                for obj in objs:
+                    key = obj.__class__.__name__ + '.' + obj.id
+                    new_dict[key] = obj
         return (new_dict)
 
     def new(self, obj):
