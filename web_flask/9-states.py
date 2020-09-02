@@ -6,6 +6,7 @@ from models import storage
 
 app = Flask(__name__)
 
+
 @app.teardown_appcontext
 def tr_down(exception):
     """close session"""
