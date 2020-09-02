@@ -6,6 +6,7 @@ import sqlalchemy
 from sqlalchemy import Column, String, ForeignKey
 from models.city import City
 from sqlalchemy.orm import relationship
+import models
 
 class State(BaseModel, Base):
     """ State class """
